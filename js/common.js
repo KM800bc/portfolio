@@ -307,8 +307,8 @@ function scrollIntoStart(id) {
 
             float lightLines =
                 smoothstep(
-                    0.46,
-                    0.86,
+                    0.20,
+                    0.98,
                     abs(pattern)
                 );
 

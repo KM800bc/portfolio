@@ -507,36 +507,34 @@ section.main__wrap p{
 }
 
 
-
+------------------------------------------------
 
 /* =====================================================
-   UNDERWATER CAUSTICS - SVG VERSION
+   WEBGL UNDERWATER CAUSTICS
 ===================================================== */
 
 
-/* 메인 영역 */
+/* MAIN */
 
 section.main__wrap {
     position: relative;
     isolation: isolate;
     overflow: hidden;
+
     background: #020914;
 }
 
 
-/* 메인 텍스트는 배경 위에 표시 */
+/* 기존 원형 Blur 제거 */
 
-section.main__wrap h1,
-section.main__wrap p,
-section.main__wrap .credit {
-    position: relative;
-    z-index: 5;
+section.main__wrap > .blur {
+    display: none;
 }
 
 
-/* Caustics 전체 배경 */
+/* WebGL 배경 */
 
-.caustics-effect {
+.webgl-caustics {
     position: absolute;
     inset: 0;
 
@@ -547,226 +545,210 @@ section.main__wrap .credit {
 
     background:
         radial-gradient(
-            ellipse at 50% 0%,
-            rgba(20, 78, 122, 0.35),
-            transparent 60%
+            ellipse at 50% -10%,
+            rgba(40, 105, 165, 0.32),
+            transparent 65%
         ),
         #020914;
 }
 
 
-/* SVG 물결 패턴 */
+/* WebGL Canvas */
 
-.caustics-svg {
+#caustics-canvas {
     position: absolute;
-    inset: -8%;
-
-    width: 116%;
-    height: 116%;
+    inset: 0;
 
     display: block;
 
-    opacity: 0.85;
+    width: 100%;
+    height: 100%;
 
-    transform-origin: center center;
-
-    animation:
-        causticsSvgMove 32s ease-in-out infinite alternate;
+    opacity: 1;
 }
 
 
-/* 물결 그룹의 미세한 움직임 */
+/* 배경의 부드러운 심해 광원 */
 
-.caustics-lines__group--one {
-    animation:
-        causticsLineMoveOne 28s ease-in-out infinite alternate;
-    transform-origin: center;
-}
-
-.caustics-lines__group--two {
-    animation:
-        causticsLineMoveTwo 36s ease-in-out infinite alternate;
-    transform-origin: center;
-}
-
-.caustics-lines__group--three {
-    animation:
-        causticsLineMoveThree 42s ease-in-out infinite alternate;
-    transform-origin: center;
-}
-
-
-/* 부드러운 상단 광원 */
-
-.caustics-glow {
+.caustics-atmosphere {
     position: absolute;
-    z-index: 2;
+    inset: 0;
 
-    top: -35%;
-    left: 10%;
-
-    width: 80%;
-    height: 75%;
+    z-index: 1;
 
     pointer-events: none;
 
     background:
         radial-gradient(
-            ellipse at center,
-            rgba(120, 211, 255, 0.22) 0%,
-            rgba(55, 140, 210, 0.08) 35%,
-            transparent 72%
+            ellipse at 50% -5%,
+            rgba(155, 222, 255, 0.12),
+            transparent 48%
+        ),
+        linear-gradient(
+            180deg,
+            transparent 35%,
+            rgba(0, 6, 18, 0.24) 100%
         );
-
-    filter: blur(45px);
-
-    animation:
-        causticsGlowMove 22s ease-in-out infinite alternate;
-}
-
-
-/* 반짝임 영역 */
-
-.caustics-sparkles {
-    position: absolute;
-    inset: 0;
-
-    z-index: 3;
-
-    pointer-events: none;
-}
-
-
-/* 반짝임 입자 */
-
-.caustics-sparkle {
-    position: absolute;
-
-    display: block;
-
-    width: var(--sparkle-size);
-    height: var(--sparkle-size);
-
-    border-radius: 50%;
-
-    background: rgba(220, 247, 255, 0.95);
-
-    box-shadow:
-        0 0 5px rgba(190, 238, 255, 0.85),
-        0 0 14px rgba(90, 190, 255, 0.5);
-
-    opacity: 0;
-
-    animation:
-        sparkleFloat var(--sparkle-duration)
-        ease-in-out var(--sparkle-delay)
-        infinite;
-}
-
-
-/* 일부 입자는 십자형으로 반짝임 */
-
-.caustics-sparkle--bright::before,
-.caustics-sparkle--bright::after {
-    content: "";
-
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    background: rgba(220, 247, 255, 0.85);
-
-    transform: translate(-50%, -50%);
-}
-
-.caustics-sparkle--bright::before {
-    width: 1px;
-    height: 18px;
-}
-
-.caustics-sparkle--bright::after {
-    width: 18px;
-    height: 1px;
 }
 
 
 /* =====================================================
-   MOTION
+   FLOATING PARTICLES
 ===================================================== */
 
-@keyframes causticsSvgMove {
+.caustics-particles {
+    position: absolute;
+    inset: 0;
 
-    0% {
-        transform: translate3d(-1.5%, -1%, 0) scale(1);
-    }
+    z-index: 2;
 
-    100% {
-        transform: translate3d(1.5%, 1%, 0) scale(1.04);
-    }
-
+    overflow: hidden;
+    pointer-events: none;
 }
 
 
-@keyframes causticsLineMoveOne {
+.caustics-particles span {
+    position: absolute;
 
-    0% {
-        transform: translate3d(-15px, -8px, 0);
-    }
+    display: block;
 
-    100% {
-        transform: translate3d(20px, 12px, 0);
-    }
+    width: 2px;
+    height: 2px;
 
+    border-radius: 50%;
+
+    background: rgba(211, 241, 255, 0.8);
+
+    box-shadow:
+        0 0 6px rgba(132, 211, 255, 0.7),
+        0 0 13px rgba(85, 174, 255, 0.35);
+
+    opacity: 0;
+
+    animation:
+        causticsParticleMove
+        var(--particle-duration, 12s)
+        ease-in-out
+        var(--particle-delay, 0s)
+        infinite;
 }
 
 
-@keyframes causticsLineMoveTwo {
+/* 입자 위치 */
 
-    0% {
-        transform: translate3d(12px, -15px, 0) rotate(-1deg);
-    }
+.caustics-particles span:nth-child(1) {
+    left: 12%;
+    top: 30%;
+    --particle-duration: 13s;
+    --particle-delay: -3s;
+}
 
-    100% {
-        transform: translate3d(-18px, 15px, 0) rotate(1deg);
-    }
+.caustics-particles span:nth-child(2) {
+    left: 21%;
+    top: 55%;
+    --particle-duration: 16s;
+    --particle-delay: -8s;
+}
 
+.caustics-particles span:nth-child(3) {
+    left: 29%;
+    top: 23%;
+    --particle-duration: 11s;
+    --particle-delay: -5s;
+}
+
+.caustics-particles span:nth-child(4) {
+    left: 37%;
+    top: 70%;
+    --particle-duration: 15s;
+    --particle-delay: -10s;
+}
+
+.caustics-particles span:nth-child(5) {
+    left: 46%;
+    top: 39%;
+    --particle-duration: 18s;
+    --particle-delay: -6s;
+}
+
+.caustics-particles span:nth-child(6) {
+    left: 53%;
+    top: 76%;
+    --particle-duration: 14s;
+    --particle-delay: -12s;
+}
+
+.caustics-particles span:nth-child(7) {
+    left: 61%;
+    top: 27%;
+    --particle-duration: 17s;
+    --particle-delay: -7s;
+}
+
+.caustics-particles span:nth-child(8) {
+    left: 69%;
+    top: 51%;
+    --particle-duration: 12s;
+    --particle-delay: -4s;
+}
+
+.caustics-particles span:nth-child(9) {
+    left: 77%;
+    top: 34%;
+    --particle-duration: 15s;
+    --particle-delay: -11s;
+}
+
+.caustics-particles span:nth-child(10) {
+    left: 84%;
+    top: 66%;
+    --particle-duration: 19s;
+    --particle-delay: -13s;
+}
+
+.caustics-particles span:nth-child(11) {
+    left: 91%;
+    top: 25%;
+    --particle-duration: 14s;
+    --particle-delay: -5s;
+}
+
+.caustics-particles span:nth-child(12) {
+    left: 17%;
+    top: 81%;
+    --particle-duration: 18s;
+    --particle-delay: -9s;
+}
+
+.caustics-particles span:nth-child(13) {
+    left: 42%;
+    top: 16%;
+    --particle-duration: 13s;
+    --particle-delay: -6s;
+}
+
+.caustics-particles span:nth-child(14) {
+    left: 66%;
+    top: 83%;
+    --particle-duration: 16s;
+    --particle-delay: -10s;
+}
+
+.caustics-particles span:nth-child(15) {
+    left: 89%;
+    top: 77%;
+    --particle-duration: 20s;
+    --particle-delay: -15s;
 }
 
 
-@keyframes causticsLineMoveThree {
+/* 입자 애니메이션 */
 
-    0% {
-        transform: translate3d(-20px, 12px, 0);
-    }
-
-    100% {
-        transform: translate3d(20px, -12px, 0);
-    }
-
-}
-
-
-@keyframes causticsGlowMove {
-
-    0% {
-        transform: translate3d(-8%, -5%, 0) scale(0.9);
-        opacity: 0.4;
-    }
-
-    100% {
-        transform: translate3d(10%, 12%, 0) scale(1.15);
-        opacity: 0.85;
-    }
-
-}
-
-
-@keyframes sparkleFloat {
+@keyframes causticsParticleMove {
 
     0% {
         opacity: 0;
-        transform: translate3d(0, 12px, 0) scale(0.4);
+        transform: translate3d(0, 20px, 0) scale(0.4);
     }
 
     25% {
@@ -774,19 +756,35 @@ section.main__wrap .credit {
     }
 
     50% {
-        opacity: 0.9;
-        transform: translate3d(0, -5px, 0) scale(1);
+        opacity: 0.85;
+        transform: translate3d(8px, -8px, 0) scale(1);
     }
 
-    70% {
+    75% {
         opacity: 0.25;
     }
 
     100% {
         opacity: 0;
-        transform: translate3d(8px, -24px, 0) scale(0.35);
+        transform: translate3d(-6px, -35px, 0) scale(0.3);
     }
 
+}
+
+
+/* =====================================================
+   TEXT LAYER
+===================================================== */
+
+
+/* 기존 메인 콘텐츠는 효과 위에 표시 */
+
+section.main__wrap h1,
+section.main__wrap p,
+section.main__wrap .credit,
+section.main__wrap .main__inner {
+    position: relative;
+    z-index: 5;
 }
 
 
@@ -794,33 +792,29 @@ section.main__wrap .credit {
 
 @media screen and (max-width: 768px) {
 
-    .caustics-svg {
-        inset: -15%;
-
-        width: 130%;
-        height: 130%;
-
-        opacity: 0.7;
+    .caustics-atmosphere {
+        opacity: 0.8;
     }
 
-    .caustics-glow {
-        filter: blur(30px);
+    .caustics-particles span {
+        width: 1.5px;
+        height: 1.5px;
     }
 
 }
 
 
-/* 모션 감소 환경 */
+/* 모션 감소 설정 */
 
 @media (prefers-reduced-motion: reduce) {
 
-    .caustics-svg,
-    .caustics-lines__group--one,
-    .caustics-lines__group--two,
-    .caustics-lines__group--three,
-    .caustics-glow,
-    .caustics-sparkle {
+    .caustics-particles span {
         animation: none;
+        opacity: 0.25;
     }
 
 }
+
+
+
+

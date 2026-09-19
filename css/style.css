@@ -68,6 +68,7 @@ nav{
     align-items:center;
     justify-content:center;
     height: 100%;
+    color:#fff;
 }
 .nav__ul a:hover{
     color: var(--point-color)

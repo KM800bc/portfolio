@@ -510,181 +510,138 @@ section.main__wrap p{
 
 
 /* =====================================================
-   UNDERWATER CAUSTICS EFFECT
-   Deep Water + Soft Light + Subtle Sparkles
+   UNDERWATER CAUSTICS - SVG VERSION
 ===================================================== */
 
 
-/* 메인 영역 기본 설정 */
+/* 메인 영역 */
 
 section.main__wrap {
     position: relative;
     isolation: isolate;
     overflow: hidden;
+    background: #020914;
 }
 
 
-/* 배경 효과 전체 영역 */
+/* 메인 텍스트는 배경 위에 표시 */
 
-section.caustics-effect {
+section.main__wrap h1,
+section.main__wrap p,
+section.main__wrap .credit {
+    position: relative;
+    z-index: 5;
+}
+
+
+/* Caustics 전체 배경 */
+
+.caustics-effect {
     position: absolute;
     inset: 0;
-    z-index: -1;
+
+    z-index: 0;
+
     overflow: hidden;
     pointer-events: none;
+
     background:
         radial-gradient(
             ellipse at 50% 0%,
-            rgba(22, 71, 116, 0.38) 0%,
-            rgba(5, 19, 38, 0.7) 42%,
-            #020914 100%
-        );
+            rgba(20, 78, 122, 0.35),
+            transparent 60%
+        ),
+        #020914;
 }
 
 
-/* 물속 빛의 굴절 패턴 */
+/* SVG 물결 패턴 */
 
-section.caustics-layer {
+.caustics-svg {
     position: absolute;
-    inset: -25%;
-    opacity: 0.48;
-    mix-blend-mode: screen;
-    filter: blur(1px);
-    will-change: transform, background-position;
-}
+    inset: -8%;
 
+    width: 116%;
+    height: 116%;
 
-/* 첫 번째 빛 패턴 */
+    display: block;
 
-section.caustics-layer--one {
-    background:
-        radial-gradient(
-            ellipse at 20% 30%,
-            transparent 0%,
-            rgba(103, 190, 255, 0.12) 12%,
-            transparent 28%
-        ),
-        radial-gradient(
-            ellipse at 70% 20%,
-            transparent 0%,
-            rgba(113, 202, 255, 0.18) 10%,
-            transparent 25%
-        ),
-        radial-gradient(
-            ellipse at 45% 80%,
-            transparent 0%,
-            rgba(60, 154, 226, 0.15) 12%,
-            transparent 30%
-        );
+    opacity: 0.85;
 
-    background-size:
-        55% 65%,
-        70% 75%,
-        60% 60%;
+    transform-origin: center center;
 
     animation:
-        causticsFlowOne 24s ease-in-out infinite alternate;
+        causticsSvgMove 32s ease-in-out infinite alternate;
 }
 
 
-/* 두 번째 빛 패턴 */
+/* 물결 그룹의 미세한 움직임 */
 
-section.caustics-layer--two {
-    opacity: 0.35;
-    transform: rotate(18deg) scale(1.15);
-
-    background:
-        radial-gradient(
-            ellipse at 30% 45%,
-            transparent 0%,
-            rgba(147, 220, 255, 0.18) 8%,
-            transparent 24%
-        ),
-        radial-gradient(
-            ellipse at 80% 65%,
-            transparent 0%,
-            rgba(81, 163, 235, 0.2) 10%,
-            transparent 28%
-        ),
-        radial-gradient(
-            ellipse at 55% 10%,
-            transparent 0%,
-            rgba(161, 226, 255, 0.12) 8%,
-            transparent 22%
-        );
-
-    background-size:
-        65% 80%,
-        75% 65%,
-        50% 70%;
-
+.caustics-lines__group--one {
     animation:
-        causticsFlowTwo 31s ease-in-out infinite alternate;
+        causticsLineMoveOne 28s ease-in-out infinite alternate;
+    transform-origin: center;
 }
 
-
-/* 세 번째 빛 패턴 */
-
-section.caustics-layer--three {
-    opacity: 0.22;
-    transform: rotate(-15deg) scale(1.3);
-    filter: blur(4px);
-
-    background:
-        radial-gradient(
-            ellipse at 15% 75%,
-            rgba(77, 166, 240, 0.22) 0%,
-            transparent 32%
-        ),
-        radial-gradient(
-            ellipse at 90% 30%,
-            rgba(93, 184, 255, 0.18) 0%,
-            transparent 35%
-        );
-
+.caustics-lines__group--two {
     animation:
-        causticsFlowThree 38s ease-in-out infinite alternate;
+        causticsLineMoveTwo 36s ease-in-out infinite alternate;
+    transform-origin: center;
+}
+
+.caustics-lines__group--three {
+    animation:
+        causticsLineMoveThree 42s ease-in-out infinite alternate;
+    transform-origin: center;
 }
 
 
-/* 중앙의 은은한 빛 */
+/* 부드러운 상단 광원 */
 
-section.caustics-glow {
+.caustics-glow {
     position: absolute;
-    width: 75%;
-    height: 60%;
-    top: -25%;
-    left: 12.5%;
+    z-index: 2;
+
+    top: -35%;
+    left: 10%;
+
+    width: 80%;
+    height: 75%;
+
+    pointer-events: none;
 
     background:
         radial-gradient(
-            ellipse,
-            rgba(107, 197, 255, 0.17) 0%,
-            rgba(38, 104, 166, 0.08) 35%,
+            ellipse at center,
+            rgba(120, 211, 255, 0.22) 0%,
+            rgba(55, 140, 210, 0.08) 35%,
             transparent 72%
         );
 
-    filter: blur(35px);
-    opacity: 0.75;
+    filter: blur(45px);
 
     animation:
-        causticsGlowMove 18s ease-in-out infinite alternate;
+        causticsGlowMove 22s ease-in-out infinite alternate;
 }
 
 
 /* 반짝임 영역 */
 
-section.caustics-sparkles {
+.caustics-sparkles {
     position: absolute;
     inset: 0;
-    overflow: hidden;
+
+    z-index: 3;
+
+    pointer-events: none;
 }
 
 
-/* 반짝임 입자 기본 */
+/* 반짝임 입자 */
 
-section.caustics-sparkle {
+.caustics-sparkle {
     position: absolute;
+
     display: block;
 
     width: var(--sparkle-size);
@@ -692,96 +649,99 @@ section.caustics-sparkle {
 
     border-radius: 50%;
 
-    background: rgba(220, 245, 255, 0.95);
+    background: rgba(220, 247, 255, 0.95);
 
     box-shadow:
-        0 0 5px rgba(150, 220, 255, 0.85),
-        0 0 12px rgba(100, 190, 255, 0.5);
+        0 0 5px rgba(190, 238, 255, 0.85),
+        0 0 14px rgba(90, 190, 255, 0.5);
 
     opacity: 0;
 
     animation:
-        sparkleFloat var(--sparkle-duration) ease-in-out
-        var(--sparkle-delay) infinite;
+        sparkleFloat var(--sparkle-duration)
+        ease-in-out var(--sparkle-delay)
+        infinite;
 }
 
 
-/* 일부 입자는 십자형 빛으로 표현 */
+/* 일부 입자는 십자형으로 반짝임 */
 
-.caustics-sparkle::before,
-.caustics-sparkle::after {
+.caustics-sparkle--bright::before,
+.caustics-sparkle--bright::after {
     content: "";
+
     position: absolute;
+
     top: 50%;
     left: 50%;
 
-    width: 1px;
-    height: 0;
-
-    background: rgba(210, 242, 255, 0.8);
+    background: rgba(220, 247, 255, 0.85);
 
     transform: translate(-50%, -50%);
-    transition: height 0.3s ease;
 }
 
-.caustics-sparkle::after {
-    width: 0;
+.caustics-sparkle--bright::before {
+    width: 1px;
+    height: 18px;
+}
+
+.caustics-sparkle--bright::after {
+    width: 18px;
     height: 1px;
 }
 
 
-/* 애니메이션 */
+/* =====================================================
+   MOTION
+===================================================== */
 
-@keyframes causticsFlowOne {
+@keyframes causticsSvgMove {
 
     0% {
-        transform: translate3d(-3%, -2%, 0) scale(1);
-        background-position:
-            0% 0%,
-            50% 20%,
-            20% 60%;
+        transform: translate3d(-1.5%, -1%, 0) scale(1);
     }
 
     100% {
-        transform: translate3d(4%, 3%, 0) scale(1.08);
-        background-position:
-            40% 30%,
-            10% 50%,
-            70% 20%;
+        transform: translate3d(1.5%, 1%, 0) scale(1.04);
     }
 
 }
 
 
-@keyframes causticsFlowTwo {
+@keyframes causticsLineMoveOne {
 
     0% {
-        transform: rotate(18deg) translate3d(2%, -3%, 0) scale(1.15);
-        background-position:
-            20% 10%,
-            80% 40%,
-            40% 70%;
+        transform: translate3d(-15px, -8px, 0);
     }
 
     100% {
-        transform: rotate(22deg) translate3d(-4%, 4%, 0) scale(1.25);
-        background-position:
-            60% 50%,
-            20% 80%,
-            70% 10%;
+        transform: translate3d(20px, 12px, 0);
     }
 
 }
 
 
-@keyframes causticsFlowThree {
+@keyframes causticsLineMoveTwo {
 
     0% {
-        transform: rotate(-15deg) translate3d(-3%, 2%, 0) scale(1.3);
+        transform: translate3d(12px, -15px, 0) rotate(-1deg);
     }
 
     100% {
-        transform: rotate(-8deg) translate3d(5%, -4%, 0) scale(1.4);
+        transform: translate3d(-18px, 15px, 0) rotate(1deg);
+    }
+
+}
+
+
+@keyframes causticsLineMoveThree {
+
+    0% {
+        transform: translate3d(-20px, 12px, 0);
+    }
+
+    100% {
+        transform: translate3d(20px, -12px, 0);
     }
 
 }
@@ -795,7 +755,7 @@ section.caustics-sparkle {
     }
 
     100% {
-        transform: translate3d(12%, 12%, 0) scale(1.15);
+        transform: translate3d(10%, 12%, 0) scale(1.15);
         opacity: 0.85;
     }
 
@@ -810,7 +770,7 @@ section.caustics-sparkle {
     }
 
     25% {
-        opacity: 0.35;
+        opacity: 0.3;
     }
 
     50% {
@@ -830,40 +790,34 @@ section.caustics-sparkle {
 }
 
 
-/* 모바일 성능 및 효과 조정 */
+/* 모바일 */
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
-    .caustics-layer {
-        opacity: 0.35;
-    }
+    .caustics-svg {
+        inset: -15%;
 
-    .caustics-layer--two {
-        opacity: 0.22;
-    }
+        width: 130%;
+        height: 130%;
 
-    .caustics-layer--three {
-        opacity: 0.15;
+        opacity: 0.7;
     }
 
     .caustics-glow {
-        filter: blur(25px);
-    }
-
-    .caustics-sparkle {
-        box-shadow:
-            0 0 4px rgba(150, 220, 255, 0.7),
-            0 0 8px rgba(100, 190, 255, 0.35);
+        filter: blur(30px);
     }
 
 }
 
 
-/* 모션 감소 설정을 사용하는 방문자 배려 */
+/* 모션 감소 환경 */
 
 @media (prefers-reduced-motion: reduce) {
 
-    .caustics-layer,
+    .caustics-svg,
+    .caustics-lines__group--one,
+    .caustics-lines__group--two,
+    .caustics-lines__group--three,
     .caustics-glow,
     .caustics-sparkle {
         animation: none;

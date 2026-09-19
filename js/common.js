@@ -347,7 +347,7 @@ function scrollIntoStart(id) {
             /* 패턴 크기 */
 
             vec2 causticsUV =
-                p * 2.25;
+                p * 3.0;
 
 
             float time =

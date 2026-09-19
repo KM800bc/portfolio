@@ -117,185 +117,39 @@
         </div>
       </header>
       <section id="main" class="main__wrap">
-        
+      
 		
-<!-- UNDERWATER CAUSTICS BACKGROUND -->
+		
+<!-- WEBGL UNDERWATER CAUSTICS -->
 
-<div class="caustics-effect" aria-hidden="true">
+<div class="webgl-caustics" aria-hidden="true">
 
-    <!-- SVG Water Light Pattern -->
+    <canvas id="caustics-canvas"></canvas>
 
-    <svg
-        class="caustics-svg"
-        viewBox="0 0 1600 900"
-        preserveAspectRatio="xMidYMid slice"
-        xmlns="http://www.w3.org/2000/svg"
-    >
+    <div class="caustics-atmosphere"></div>
 
-        <defs>
-
-            <!-- 물결을 불규칙하게 변형하는 필터 -->
-
-            <filter
-                id="caustics-distortion"
-                x="-10%"
-                y="-10%"
-                width="120%"
-                height="120%"
-            >
-
-                <feTurbulence
-                    type="fractalNoise"
-                    baseFrequency="0.008 0.035"
-                    numOctaves="2"
-                    seed="8"
-                    result="waterNoise"
-                >
-
-                    <animate
-                        attributeName="baseFrequency"
-                        dur="24s"
-                        values="0.008 0.035;0.014 0.045;0.008 0.035"
-                        repeatCount="indefinite"
-                    />
-
-                </feTurbulence>
-
-                <feDisplacementMap
-                    in="SourceGraphic"
-                    in2="waterNoise"
-                    scale="34"
-                    xChannelSelector="R"
-                    yChannelSelector="G"
-                />
-
-            </filter>
-
-
-            <!-- 빛의 색상 -->
-
-            <linearGradient
-                id="caustics-light"
-                x1="0%"
-                y1="0%"
-                x2="100%"
-                y2="100%"
-            >
-
-                <stop
-                    offset="0%"
-                    stop-color="#6dcfff"
-                    stop-opacity="0.05"
-                />
-
-                <stop
-                    offset="45%"
-                    stop-color="#b8edff"
-                    stop-opacity="0.9"
-                />
-
-                <stop
-                    offset="100%"
-                    stop-color="#4aa9ef"
-                    stop-opacity="0.08"
-                />
-
-            </linearGradient>
-
-        </defs>
-
-
-        <!-- 전체 물결 라인 -->
-
-        <g
-            class="caustics-lines"
-            filter="url(#caustics-distortion)"
-            fill="none"
-            stroke="url(#caustics-light)"
-            stroke-linecap="round"
-        >
-
-            <g
-                class="caustics-lines__group caustics-lines__group--one"
-                stroke-width="3"
-                opacity="0.72"
-            >
-
-                <path d="M-100 110 C100 20 170 210 360 130 S620 40 800 160 S1100 270 1300 130 S1510 40 1700 130" />
-
-                <path d="M-100 240 C80 150 240 350 430 250 S670 130 870 270 S1120 390 1330 250 S1530 180 1700 270" />
-
-                <path d="M-100 390 C120 290 230 470 420 390 S700 260 900 410 S1140 500 1340 380 S1530 300 1700 410" />
-
-                <path d="M-100 540 C100 450 260 620 460 520 S700 420 900 560 S1150 650 1360 530 S1530 450 1700 560" />
-
-                <path d="M-100 700 C100 600 280 780 470 670 S720 570 920 710 S1150 800 1360 680 S1530 600 1700 720" />
-
-                <path d="M-100 850 C100 760 280 900 480 820 S720 730 930 850 S1160 930 1370 820 S1530 760 1700 850" />
-
-            </g>
-
-
-            <g
-                class="caustics-lines__group caustics-lines__group--two"
-                stroke-width="2"
-                opacity="0.5"
-            >
-
-                <path d="M100 -100 C20 100 260 150 160 330 S80 580 250 760 S330 950 280 1050" />
-
-                <path d="M380 -100 C300 100 540 160 440 350 S350 580 520 770 S600 950 550 1050" />
-
-                <path d="M700 -100 C620 100 860 170 760 360 S680 590 840 780 S920 950 870 1050" />
-
-                <path d="M1030 -100 C950 100 1190 160 1090 350 S1000 590 1170 780 S1250 950 1200 1050" />
-
-                <path d="M1350 -100 C1270 100 1510 160 1410 350 S1330 590 1490 780 S1570 950 1520 1050" />
-
-            </g>
-
-
-            <g
-                class="caustics-lines__group caustics-lines__group--three"
-                stroke-width="1.5"
-                opacity="0.6"
-            >
-
-                <path d="M-100 70 C100 300 350 -20 550 180 S850 390 1050 160 S1400 -10 1700 200" />
-
-                <path d="M-100 330 C100 560 350 240 550 440 S850 650 1050 420 S1400 250 1700 460" />
-
-                <path d="M-100 600 C100 830 350 510 550 710 S850 920 1050 690 S1400 520 1700 730" />
-
-            </g>
-
-        </g>
-
-    </svg>
-
-
-    <!-- 상단 부드러운 수중 광원 -->
-
-    <div class="caustics-glow"></div>
-
-
-    <!-- 반짝임 입자 -->
-
-    <div class="caustics-sparkles"></div>
+    <div class="caustics-particles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 </div>
 
-<!-- // UNDERWATER CAUSTICS BACKGROUND -->
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+<!-- // WEBGL UNDERWATER CAUSTICS -->
 		
 		
 		

@@ -132,7 +132,6 @@ function scrollIntoStart(id) {
 
 
 
-
 /* =====================================================
    WEBGL UNDERWATER CAUSTICS SHADER
 ===================================================== */
@@ -307,7 +306,7 @@ function scrollIntoStart(id) {
 
             float lightLines =
                 smoothstep(
-                    0.20,
+                    0.46,
                     0.86,
                     abs(pattern)
                 );
@@ -347,7 +346,7 @@ function scrollIntoStart(id) {
             /* 패턴 크기 */
 
             vec2 causticsUV =
-                p * 3.0;
+                p * 2.25;
 
 
             float time =
@@ -457,7 +456,7 @@ function scrollIntoStart(id) {
             gl_FragColor =
                 vec4(
                     waterColor,
-                    3.0
+                    1.0
                 );
 
         }

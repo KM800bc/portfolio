@@ -115,33 +115,7 @@ blurs.forEach((blur) => {
   rotate(blur, 1);
 });
 
-function rotate(target, direction) {
-  gsap.to(target, randomTime2(), {
-    rotation: randomAngle(direction),
-    // delay: randomDelay(),
-    ease: Sine.easeInOut,
-    onComplete: rotate,
-    onCompleteParams: [target, direction * -1],
-  });
-}
 
-function moveX(target, direction) {
-  gsap.to(target, randomTime(), {
-    x: randomX(direction),
-    ease: Sine.easeInOut,
-    onComplete: moveX,
-    onCompleteParams: [target, direction * -1],
-  });
-}
-
-function moveY(target, direction) {
-  gsap.to(target, randomTime(), {
-    y: randomY(direction),
-    ease: Sine.easeInOut,
-    onComplete: moveY,
-    onCompleteParams: [target, direction * -1],
-  });
-}
 
 function random(min, max) {
   const delta = max - min;
@@ -152,3 +126,123 @@ function scrollIntoStart(id) {
   const x = document.getElementById(id);
   x.scrollIntoView({ behavior: "smooth", block: "start" });
 }
+
+
+
+
+
+
+/* =====================================================
+   UNDERWATER CAUSTICS - SPARKLE GENERATOR
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const sparkleContainer = document.querySelector(
+        ".caustics-sparkles"
+    );
+
+    if (!sparkleContainer) return;
+
+
+    /*
+     * 반짝임 입자 개수
+     *
+     * PC: 38개
+     * 모바일: 20개
+     */
+
+    const isMobile = window.matchMedia(
+        "(max-width: 768px)"
+    ).matches;
+
+    const sparkleCount = isMobile ? 20 : 38;
+
+
+    for (let i = 0; i < sparkleCount; i++) {
+
+        const sparkle = document.createElement("span");
+
+        sparkle.classList.add("caustics-sparkle");
+
+
+        /*
+         * 위치
+         *
+         * 화면 전체에 무작위로 배치
+         */
+
+        sparkle.style.left = `${Math.random() * 100}%`;
+
+        sparkle.style.top = `${Math.random() * 100}%`;
+
+
+        /*
+         * 크기
+         *
+         * 대부분은 작고 은은하게
+         */
+
+        const size = (
+            Math.random() * 2.2 + 1
+        ).toFixed(2);
+
+        sparkle.style.setProperty(
+            "--sparkle-size",
+            `${size}px`
+        );
+
+
+        /*
+         * 반짝임 지속 시간
+         *
+         * 5~11초 사이로 무작위 설정
+         */
+
+        const duration = (
+            Math.random() * 6 + 5
+        ).toFixed(2);
+
+        sparkle.style.setProperty(
+            "--sparkle-duration",
+            `${duration}s`
+        );
+
+
+        /*
+         * 입자마다 시작 시점을 다르게 설정
+         */
+
+        const delay = (
+            Math.random() * -10
+        ).toFixed(2);
+
+        sparkle.style.setProperty(
+            "--sparkle-delay",
+            `${delay}s`
+        );
+
+
+        /*
+         * 일부 입자만 십자형 반짝임 적용
+         */
+
+        if (i % 7 === 0) {
+
+            sparkle.style.setProperty(
+                "--sparkle-size",
+                `${size * 1.8}px`
+            );
+
+            sparkle.classList.add(
+                "caustics-sparkle--bright"
+            );
+
+        }
+
+
+        sparkleContainer.appendChild(sparkle);
+
+    }
+
+});

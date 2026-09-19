@@ -308,7 +308,7 @@ function scrollIntoStart(id) {
             float lightLines =
                 smoothstep(
                     0.20,
-                    0.98,
+                    0.86,
                     abs(pattern)
                 );
 
@@ -457,7 +457,7 @@ function scrollIntoStart(id) {
             gl_FragColor =
                 vec4(
                     waterColor,
-                    1.0
+                    3.0
                 );
 
         }

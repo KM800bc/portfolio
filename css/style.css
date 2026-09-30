@@ -145,7 +145,7 @@ section.main__wrap p{
 .about__inner, .work__inner, .projet__inner{
     padding: 5vw 8vw;
     height: 100%;
-    background:#2c4954;
+    background:#020914;
     color:#fff;
 }
 .about__inner h2, .work__inner h2, .projet__inner h2{
@@ -878,7 +878,7 @@ section.main__wrap .main__inner {
     /*
      * 테두리 두께
      */
-    stroke-width: 0.45;
+    stroke-width: 0.7;
 
     stroke-linecap: square;
     stroke-linejoin: miter;

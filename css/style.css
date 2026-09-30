@@ -143,7 +143,7 @@ section.main__wrap p{
     padding-bottom: 5vw;
 }
 .about__inner, .work__inner, .projet__inner{
-    padding: 5vw 8vw;
+    padding: 10vw 8vw;
     height: 100%;
     background:#020914;
     color:#fff;
@@ -953,8 +953,8 @@ section.main__wrap .main__inner {
 }
 
 .textMe {width:calc(((100% / 12) * 7) - (1em * 2))}
- .textMe h2 {font-size:6rem;letter-spacing:-3px}
-.textMe h3 {font-size:4em}
+ .textMe h2 {font-size:6rem;letter-spacing:-3px;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif}
+.textMe h3 {font-size:4em;color:#20bf55;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif}
 .Wrapper_wrapper___M12Y {}
 .Button_button__etXCZ {background:#1663fe;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;color:#f4f4f8;padding:1.2em 1em 1em;}
 h1, h2, h3, h4, h5, h6 {font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;line-height:1.1}

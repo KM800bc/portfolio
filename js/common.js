@@ -766,3 +766,83 @@ function scrollIntoStart(id) {
 
 
 })();
+
+
+
+
+
+/* =====================================================
+   ABOUT ME - SCROLL GREEN HIGHLIGHT
+===================================================== */
+
+(function () {
+
+    const aboutText =
+        document.querySelector(".about__txt");
+
+    if (!aboutText) {
+        return;
+    }
+
+
+    /* 자기소개 문장 */
+
+    const paragraphs =
+        aboutText.querySelectorAll("p");
+
+
+    /* 각 문장을 효과 대상으로 등록 */
+
+    paragraphs.forEach((paragraph) => {
+
+        paragraph.classList.add("scroll-highlight");
+
+    });
+
+
+    /* 스크롤 감지 */
+
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "is-active"
+                        );
+
+                    } else {
+
+                        entry.target.classList.remove(
+                            "is-active"
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                /*
+                 * 문장이 화면 중앙 부근에
+                 * 들어왔을 때 활성화
+                 */
+
+                threshold: 0.35,
+
+                rootMargin:
+                    "-15% 0px -15% 0px"
+            }
+        );
+
+
+    paragraphs.forEach((paragraph) => {
+
+        observer.observe(paragraph);
+
+    });
+
+})();

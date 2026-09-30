@@ -170,7 +170,7 @@ section.main__wrap p{
 }
 .about__box .img__box .img__emoji{width: 100%;}
 .about__txt__box{
-    width: 53%;
+    
 }
 .about__txt{
     font-size: clamp(1.6rem, 1.8vw, 1.8rem);

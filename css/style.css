@@ -827,129 +827,127 @@ section.main__wrap .main__inner {
 }
 
 
+
+
+
+
+
+
 /* =====================================================
-   ABOUT ME - SCROLL GREEN HIGHLIGHT
+   ABOUT ME
+   SCROLL ANIMATED BORDER
 ===================================================== */
 
-/* 자기소개 텍스트 영역 */
-
-.about__txt .scroll-highlight {
+.about__inner {
     position: relative;
+}
 
-    display: block;
+
+/* SVG 전체 영역 */
+
+.about-border {
+    position: absolute;
+
+    /*
+     * ABOUT ME 영역 안쪽으로 들어오는 정도
+     */
+    top: 3.5vw;
+    right: 3.5vw;
+    bottom: 3.5vw;
+    left: 3.5vw;
+
+    width: calc(100% - 7vw);
+    height: calc(100% - 7vw);
+
+    pointer-events: none;
 
     z-index: 0;
 
-    isolation: isolate;
-
-    padding: 0.12em 0.18em;
-
-    margin-left: -0.18em;
-    margin-right: -0.18em;
+    overflow: visible;
 }
 
 
-/* 초록색 띠 */
+/* 초록색 테두리 */
 
-.about__txt .scroll-highlight::before {
-    content: "";
+.about-border__path {
 
-    position: absolute;
+    fill: none;
 
-    z-index: -1;
+    stroke: #A8C93A;
 
-    left: -0.08em;
-    right: -0.08em;
+    /*
+     * 테두리 두께
+     */
+    stroke-width: 0.45;
 
-    top: 50%;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
 
-    height: 2px;
+    /*
+     * SVG 경로 전체 길이
+     */
+    stroke-dasharray: 400;
 
-    transform: translateY(-50%) scaleX(0);
+    /*
+     * 처음에는 완전히 숨김
+     */
+    stroke-dashoffset: 400;
 
-    transform-origin: left center;
+    opacity: 0;
 
-    background: #A8C93A;
-
-    border-radius: 999px;
-
-    opacity: 0.95;
-
-    box-shadow:
-        0 0 10px rgba(168, 201, 58, 0.12);
-
+    /*
+     * 그려지는 속도
+     */
     transition:
-        height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.4s ease;
+        stroke-dashoffset 1.6s cubic-bezier(0.65, 0, 0.35, 1),
+        opacity 0.35s ease;
 }
 
 
-/* 화면에 들어왔을 때 */
+/* =====================================================
+   ABOUT ME가 화면에 들어왔을 때
+===================================================== */
 
-.about__txt .scroll-highlight.is-active::before {
+.about__inner.is-border-active
+.about-border__path {
 
-    height: 100%;
+    stroke-dashoffset: 0;
 
-    transform:
-        translateY(-50%)
-        scaleX(1);
-
-    opacity: 0.92;
-
+    opacity: 1;
 }
 
 
-/* 텍스트 */
+/* =====================================================
+   콘텐츠는 SVG보다 위
+===================================================== */
 
-.about__txt .scroll-highlight {
-    transition:
-        color 0.35s ease;
-}
+.about__inner > *:not(.about-border) {
 
-
-/* 초록색 위에서도 텍스트가 선명하게 */
-
-.about__txt .scroll-highlight.is-active {
-    color: #07151d;
-
-}
-
-
-/* 마지막 문장은 조금 더 진하게 */
-
-.about__txt .scroll-highlight strong {
     position: relative;
+
     z-index: 1;
 }
 
 
-/* 모바일 */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media screen and (max-width: 768px) {
 
-    .about__txt .scroll-highlight {
-        padding: 0.1em 0.12em;
+    .about-border {
 
-        margin-left: -0.12em;
-        margin-right: -0.12em;
+        top: 2.5rem;
+        right: 2.5rem;
+        bottom: 2.5rem;
+        left: 2.5rem;
+
+        width: calc(100% - 5rem);
+        height: calc(100% - 5rem);
     }
 
-    .about__txt .scroll-highlight::before {
-        left: -0.04em;
-        right: -0.04em;
-    }
+    .about-border__path {
 
+        stroke-width: 0.65;
+    }
 }
-
-
-/* 모션 감소 설정 */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .about__txt .scroll-highlight::before {
-        transition: none;
-    }
-
-}
-

@@ -954,9 +954,9 @@ section.main__wrap .main__inner {
 
 .textMe {width:calc(((100% / 12) * 7) - (1em * 2))}
  .textMe h2 {font-size:6rem;letter-spacing:-3px}
-.textMe h3 {font-size:1.3em}
+.textMe h3 {font-size:4em}
 .Wrapper_wrapper___M12Y {}
-.Button_button__etXCZ {background:##1663fe;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;color:##f4f4f8;padding:1.2em 1em 1em;}
+.Button_button__etXCZ {background:#1663fe;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;color:#f4f4f8;padding:1.2em 1em 1em;}
 h1, h2, h3, h4, h5, h6 {font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;line-height:1.1}
 body {color:#f4f4f8;font-family:normal 18px/1.6 Bitter,Cambria,Georgia,serif}
 

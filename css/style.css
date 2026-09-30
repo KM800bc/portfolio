@@ -191,6 +191,8 @@ section.main__wrap p{
     overflow: hidden;
     user-select: none;
     gap: var(--gap);
+    padding:20px 0;
+    background:#f4f4f8;
     mask-image: linear-gradient(
             var(--mask-direction, to right),
             hsl(0 0% 0% / 0),
@@ -199,6 +201,7 @@ section.main__wrap p{
             hsl(0 0% 0% / 0)
     );
 }
+
 .marquee img{
     transition: all .2s ease;
 }
@@ -853,7 +856,7 @@ section.main__wrap .main__inner {
     /*
      * ABOUT ME 영역 안쪽으로 들어오는 정도
      */
-    top: 3.5vw;
+    top: 0vw;
     right: 3.5vw;
     bottom: 3.5vw;
     left: 3.5vw;

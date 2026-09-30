@@ -952,7 +952,7 @@ section.main__wrap .main__inner {
     }
 }
 
-
+.textMe {width:calc(((100% / 12) * 7) - (1em * 2))}
  .textMe h2 {font-size:6rem;letter-spacing:-3px}
 .textMe h3 {font-size:1.3em}
 .Wrapper_wrapper___M12Y {}

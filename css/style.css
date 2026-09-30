@@ -827,5 +827,129 @@ section.main__wrap .main__inner {
 }
 
 
+/* =====================================================
+   ABOUT ME - SCROLL GREEN HIGHLIGHT
+===================================================== */
 
+/* 자기소개 텍스트 영역 */
+
+.about__txt .scroll-highlight {
+    position: relative;
+
+    display: block;
+
+    z-index: 0;
+
+    isolation: isolate;
+
+    padding: 0.12em 0.18em;
+
+    margin-left: -0.18em;
+    margin-right: -0.18em;
+}
+
+
+/* 초록색 띠 */
+
+.about__txt .scroll-highlight::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: -1;
+
+    left: -0.08em;
+    right: -0.08em;
+
+    top: 50%;
+
+    height: 2px;
+
+    transform: translateY(-50%) scaleX(0);
+
+    transform-origin: left center;
+
+    background: #A8C93A;
+
+    border-radius: 999px;
+
+    opacity: 0.95;
+
+    box-shadow:
+        0 0 10px rgba(168, 201, 58, 0.12);
+
+    transition:
+        height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.4s ease;
+}
+
+
+/* 화면에 들어왔을 때 */
+
+.about__txt .scroll-highlight.is-active::before {
+
+    height: 100%;
+
+    transform:
+        translateY(-50%)
+        scaleX(1);
+
+    opacity: 0.92;
+
+}
+
+
+/* 텍스트 */
+
+.about__txt .scroll-highlight {
+    transition:
+        color 0.35s ease;
+}
+
+
+/* 초록색 위에서도 텍스트가 선명하게 */
+
+.about__txt .scroll-highlight.is-active {
+    color: #07151d;
+
+}
+
+
+/* 마지막 문장은 조금 더 진하게 */
+
+.about__txt .scroll-highlight strong {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* 모바일 */
+
+@media screen and (max-width: 768px) {
+
+    .about__txt .scroll-highlight {
+        padding: 0.1em 0.12em;
+
+        margin-left: -0.12em;
+        margin-right: -0.12em;
+    }
+
+    .about__txt .scroll-highlight::before {
+        left: -0.04em;
+        right: -0.04em;
+    }
+
+}
+
+
+/* 모션 감소 설정 */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about__txt .scroll-highlight::before {
+        transition: none;
+    }
+
+}
 

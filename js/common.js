@@ -768,56 +768,53 @@ function scrollIntoStart(id) {
 })();
 
 
-
-
-
 /* =====================================================
-   ABOUT ME - SCROLL GREEN HIGHLIGHT
+   ABOUT ME
+   SCROLL BORDER ANIMATION
 ===================================================== */
 
 (function () {
 
-    const aboutText =
-        document.querySelector(".about__txt");
+    const aboutSection =
+        document.querySelector(".about__inner");
 
-    if (!aboutText) {
-        return;
-    }
+    if (!aboutSection) return;
 
 
-    /* 자기소개 문장 */
-
-    const paragraphs =
-        aboutText.querySelectorAll("p");
+    const aboutBorder =
+        aboutSection.querySelector(".about-border");
 
 
-    /* 각 문장을 효과 대상으로 등록 */
+    if (!aboutBorder) return;
 
-    paragraphs.forEach((paragraph) => {
-
-        paragraph.classList.add("scroll-highlight");
-
-    });
-
-
-    /* 스크롤 감지 */
 
     const observer =
         new IntersectionObserver(
+
             (entries) => {
 
                 entries.forEach((entry) => {
 
                     if (entry.isIntersecting) {
 
-                        entry.target.classList.add(
-                            "is-active"
+                        /*
+                         * ABOUT ME가 화면에 들어오면
+                         * 테두리를 그린다.
+                         */
+
+                        aboutSection.classList.add(
+                            "is-border-active"
                         );
 
                     } else {
 
-                        entry.target.classList.remove(
-                            "is-active"
+                        /*
+                         * ABOUT ME가 화면을 벗어나면
+                         * 테두리를 다시 숨긴다.
+                         */
+
+                        aboutSection.classList.remove(
+                            "is-border-active"
                         );
 
                     }
@@ -825,24 +822,19 @@ function scrollIntoStart(id) {
                 });
 
             },
+
             {
                 /*
-                 * 문장이 화면 중앙 부근에
-                 * 들어왔을 때 활성화
+                 * ABOUT ME가
+                 * 화면의 약 15% 이상 들어왔을 때 시작
                  */
 
-                threshold: 0.35,
-
-                rootMargin:
-                    "-15% 0px -15% 0px"
+                threshold: 0.15
             }
+
         );
 
 
-    paragraphs.forEach((paragraph) => {
-
-        observer.observe(paragraph);
-
-    });
+    observer.observe(aboutSection);
 
 })();

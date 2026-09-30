@@ -149,7 +149,7 @@ section.main__wrap p{
     color:#fff;
 }
 .about__inner h2, .work__inner h2, .projet__inner h2{
-    margin-bottom: 6rem;
+    /*margin-bottom: 6rem;*/
     font-size: 4rem;
     font-weight: bold;
 }
@@ -959,3 +959,10 @@ section.main__wrap .main__inner {
 .Button_button__etXCZ {background:##1663fe;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;color:##f4f4f8;padding:1.2em 1em 1em;}
 h1, h2, h3, h4, h5, h6 {font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;line-height:1.1}
 body {color:#f4f4f8;font-family:normal 18px/1.6 Bitter,Cambria,Georgia,serif}
+
+@media screen and (max-width: 1739px) {
+    .Section_section__QV_9w {width:calc(100% - 6em)}
+}
+@media screen and (max-width: 739px) {
+    .Section_section__QV_9w {width:calc(100% - 2em);padding-top:3em}
+}

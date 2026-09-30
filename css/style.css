@@ -146,6 +146,7 @@ section.main__wrap p{
     padding: 5vw 8vw;
     height: 100%;
     background:#2c4954;
+    color:#fff;
 }
 .about__inner h2, .work__inner h2, .projet__inner h2{
     margin-bottom: 6rem;

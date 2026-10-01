@@ -140,7 +140,7 @@ section.main__wrap p{
 
 /************** ABOUT ****************/
 .about__wrap{
-    padding-bottom: 5vw;
+    padding-bottom: 0vw;
 }
 .about__inner, .work__inner, .projet__inner{
     padding: 10vw 8vw;

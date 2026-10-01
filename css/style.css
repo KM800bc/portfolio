@@ -968,7 +968,7 @@ section.main__wrap .main__inner {
     }
 }
 
-.textMe {width:calc(((100% / 12) * 7) - (1em * 2))}
+.textMe {width:calc(((100% / 12) * 9) - (1em * 2))}
  .textMe h2 {font-size:6rem;letter-spacing:-3px;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif}
 .textMe h3 {font-size:4em;color:#20bf55;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;margin:10px 0;}
 .textMe h3 + p {font-size:3em;font-weight:normal;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif}

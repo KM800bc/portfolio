@@ -980,10 +980,12 @@ body {color:#f4f4f8;font-family:normal 18px/1.6 Bitter,Cambria,Georgia,serif}
 @media screen and (max-width: 1739px) {
     .Section_section__QV_9w {width:calc(100% - 6em)}
 }
+@media screen and (max-width: 980px) {
+    .Section_section__QV_9w {width:calc(((100% / 12) * 9) - (1em * 2));padding-top:3em;margin-left:calc(((100% / 12) * 1) + 1em)}
+}
 @media screen and (max-width: 739px) {
     .Section_section__QV_9w {width:calc(100% - 2em);padding-top:3em}
 }
-
 
 /* =====================================================
    ABOUT ME - SCROLL DOWN ARROW

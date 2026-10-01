@@ -981,3 +981,88 @@ body {color:#f4f4f8;font-family:normal 18px/1.6 Bitter,Cambria,Georgia,serif}
 @media screen and (max-width: 739px) {
     .Section_section__QV_9w {width:calc(100% - 2em);padding-top:3em}
 }
+
+
+/* =====================================================
+   ABOUT ME - SCROLL DOWN ARROW
+===================================================== */
+
+.about-scroll-arrow {
+    position: absolute;
+
+    /* 네모 박스 안쪽 오른쪽 하단 */
+    right: 2.8vw;
+    bottom: 2.5vw;
+
+    width: 24px;
+    height: 38px;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: aboutArrowMove 1.8s ease-in-out infinite;
+}
+
+
+/* 아래 방향 화살표 */
+
+.about-scroll-arrow span {
+    position: relative;
+
+    display: block;
+
+    width: 12px;
+    height: 12px;
+
+    border-right: 2px solid #B7D957;
+    border-bottom: 2px solid #B7D957;
+
+    transform: rotate(45deg);
+
+}
+
+
+/* 위아래로 살짝 움직임 */
+
+@keyframes aboutArrowMove {
+
+    0% {
+        transform: translateY(-3px);
+    }
+
+    50% {
+        transform: translateY(3px);
+    }
+
+    100% {
+        transform: translateY(-3px);
+    }
+
+}
+
+
+/* 모바일 */
+
+@media screen and (max-width: 768px) {
+
+    .about-scroll-arrow {
+        right: 2rem;
+        bottom: 2rem;
+
+        width: 20px;
+        height: 32px;
+    }
+
+    .about-scroll-arrow span {
+        width: 10px;
+        height: 10px;
+
+        border-width: 1.5px;
+    }
+
+}

@@ -143,10 +143,10 @@ section.main__wrap p{
     padding-bottom: 0vw;
 }
 .about__inner, .projet__inner{
-    padding: 4vw 8vw 10vw;
+    padding: 5vw 8vw 15vw;
     height: 100%;
     background:#081831;
-    color:#fff;
+    color:#f4f4f8;
 }
 .work__inner {
     padding: 0vw 8vw;
@@ -968,7 +968,7 @@ section.main__wrap .main__inner {
     }
 }
 
-.textMe {width:calc(((100% / 12) * 9) - (1em * 2))}
+.textMe {width:calc(((100% / 12) * 9) - (1em * 2));margin-left:calc(((100% / 12) * 1) + 1em)}
  .textMe h2 {font-size:6rem;letter-spacing:-3px;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif}
 .textMe h3 {font-size:4em;color:#20bf55;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;margin:10px 0;}
 .textMe h3 + p {font-size:3em;font-weight:normal;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif}

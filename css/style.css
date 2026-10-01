@@ -954,7 +954,6 @@ section.main__wrap .main__inner {
     .about-border__path {
 
         stroke-width: 0.8;
-        vector-effect: non-scaling-stroke;
     }
 }
 

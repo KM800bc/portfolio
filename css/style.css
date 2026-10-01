@@ -986,7 +986,7 @@ body {color:#f4f4f8;font-family:normal 18px/1.6 Bitter,Cambria,Georgia,serif}
 @media screen and (max-width: 739px) {
     .Section_section__QV_9w {width:calc(100% - 2em);padding-top:3em}
 }
-@media screen and (max-width: 739px) {
+@media screen and (max-width: 900px) {
     .textMe {width:calc(((100% / 12) * 12) - (1em * 2))}
 }
 

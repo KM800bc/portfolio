@@ -1024,11 +1024,11 @@ body {color:#f4f4f8;font-family:normal 18px/1.6 Bitter,Cambria,Georgia,serif}
 
     display: block;
 
-    width: 12px;
-    height: 12px;
+    width: 20px;
+    height: 20px;
 
-    border-right: 2px solid #B7D957;
-    border-bottom: 2px solid #B7D957;
+    border-right: 2px solid #20bf55;
+    border-bottom: 2px solid #20bf55;
 
     transform: rotate(45deg);
 

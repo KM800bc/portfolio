@@ -893,13 +893,14 @@ section.main__wrap .main__inner {
     /*
      * SVG 경로 전체 길이
      */
-     stroke-dasharray: none;
-    stroke-dashoffset: 0;
+     stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
 
     /*
      * 처음에는 완전히 숨김
-     */
     stroke-dashoffset: 400;
+     */
+    
 
     opacity: 0;
 

@@ -865,11 +865,11 @@ section.main__wrap .main__inner {
      * ABOUT ME 영역 안쪽으로 들어오는 정도
      */
     top: 0vw;
-    right: 3.5vw;
-    bottom: 3.5vw;
-    left: 3.5vw;
+    right: 8vw;
+    bottom: 8vw;
+    left: 8vw;
 
-    width: calc(100% - 10vw);
+    width: calc(100% - 16vw);
     height: calc(100% - 10vw);
 
     pointer-events: none;

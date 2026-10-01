@@ -869,8 +869,8 @@ section.main__wrap .main__inner {
     bottom: 3.5vw;
     left: 3.5vw;
 
-    width: calc(100% - 7vw);
-    height: calc(100% - 7vw);
+    width: calc(100% - 10vw);
+    height: calc(100% - 10vw);
 
     pointer-events: none;
 

@@ -946,7 +946,7 @@ section.main__wrap .main__inner {
 
     .about-border {
 
-        top: 2.5rem;
+        top: 0rem;
         right: 2.5rem;
         bottom: 2.5rem;
         left: 2.5rem;
@@ -957,7 +957,7 @@ section.main__wrap .main__inner {
 
     .about-border__path {
 
-        stroke-width: 0.8;
+        stroke-width: 3px;
     }
 }
 

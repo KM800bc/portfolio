@@ -988,7 +988,7 @@ body {color:#f4f4f8;font-family:normal 18px/1.6 Bitter,Cambria,Georgia,serif}
 }
 @media screen and (max-width: 900px) {
     .textMe {width:calc(((100% / 12) * 11) - (1em * 2))}
-    .textMe h2 {font-size:3rem;}
+    .textMe h2 {font-size:3rem;line-height:1.3}
 }
 
 /* =====================================================

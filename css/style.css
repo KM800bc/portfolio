@@ -892,6 +892,7 @@ section.main__wrap .main__inner {
      * 테두리 두께
      */
     stroke-width: 6px;
+    vector-effect: non-scaling-stroke;
 
     stroke-linecap: square;
     stroke-linejoin: miter;

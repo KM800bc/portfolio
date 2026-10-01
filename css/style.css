@@ -522,6 +522,8 @@ section.main__wrap p{
 .main__wrap .title-ad {
    /*   color: #00F0FF;*/
     color: #20bf55;
+    font-weight:600;
+    font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;
 }
 ------------------------------------------------
 

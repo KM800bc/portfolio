@@ -842,30 +842,25 @@ function scrollIntoStart(id) {
 
 
 
-// ABOUT ME 영역을 아래로 벗어날 때 선을 역방향으로 숨김
+// ABOUT ME 선 - 아래로 영역을 벗어나면 역방향으로 사라짐
 const aboutSection = document.querySelector("#about");
 const aboutBorder = document.querySelector(".about-border__path");
 
-if (aboutSection && aboutBorder) {
-  let aboutEntered = false;
+function aboutBorderScroll() {
+  if (!aboutSection || !aboutBorder) return;
 
-  window.addEventListener("scroll", () => {
-    const rect = aboutSection.getBoundingClientRect();
+  const rect = aboutSection.getBoundingClientRect();
 
-    // ABOUT ME 영역에 들어온 상태
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      aboutEntered = true;
-    }
+  // ABOUT ME가 화면에 들어와 있는 동안
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    aboutBorder.style.strokeDashoffset = "0";
+  }
 
-    // 아래 방향으로 ABOUT ME를 완전히 벗어남
-    if (aboutEntered && rect.bottom <= 0) {
-      aboutEntered = false;
-
-      aboutBorder.style.animation = "none";
-      aboutBorder.getBoundingClientRect();
-
-      aboutBorder.style.animation =
-        "aboutBorderHide 1.2s ease forwards";
-    }
-  });
+  // 아래로 스크롤해서 ABOUT ME 아래를 완전히 벗어났을 때
+  if (rect.bottom <= 0) {
+    aboutBorder.style.strokeDashoffset = "1000";
+  }
 }
+
+window.addEventListener("scroll", aboutBorderScroll);
+aboutBorderScroll();

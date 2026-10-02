@@ -496,6 +496,7 @@ section.main__wrap p{
     }
     .footer__wrap{
         padding: 0 2vw;
+        background:#081831;
     }
     .copyright {
         flex-direction: column-reverse;

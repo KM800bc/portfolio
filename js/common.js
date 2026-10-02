@@ -842,25 +842,3 @@ function scrollIntoStart(id) {
 
 
 
-// ABOUT ME 선 - 아래로 영역을 벗어나면 역방향으로 사라짐
-const aboutSection = document.querySelector("#about");
-const aboutBorder = document.querySelector(".about-border__path");
-
-function aboutBorderScroll() {
-  if (!aboutSection || !aboutBorder) return;
-
-  const rect = aboutSection.getBoundingClientRect();
-
-  // ABOUT ME가 화면에 들어와 있는 동안
-  if (rect.top < window.innerHeight && rect.bottom > 0) {
-    aboutBorder.style.strokeDashoffset = "0";
-  }
-
-  // 아래로 스크롤해서 ABOUT ME 아래를 완전히 벗어났을 때
-  if (rect.bottom <= 0) {
-    aboutBorder.style.strokeDashoffset = "1000";
-  }
-}
-
-window.addEventListener("scroll", aboutBorderScroll);
-aboutBorderScroll();

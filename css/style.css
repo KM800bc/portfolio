@@ -198,7 +198,7 @@ section.main__wrap p{
     user-select: none;
     gap: var(--gap);
     padding:1rem 0;
-    background:#f4f4f8;
+    background:#081831
     mask-image: linear-gradient(
             var(--mask-direction, to right),
             hsl(0 0% 0% / 0),

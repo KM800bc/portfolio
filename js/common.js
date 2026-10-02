@@ -1,8 +1,7 @@
 (function () {
   AOS.init({
     duration: 800,
-    once: false,
-    mirror: true,
+    once: true,
   });
 
   document.querySelector(".return-top").style.display = "none";
@@ -839,3 +838,34 @@ function scrollIntoStart(id) {
     observer.observe(aboutSection);
 
 })();
+
+
+
+
+// ABOUT ME 영역을 아래로 벗어날 때 선을 역방향으로 숨김
+const aboutSection = document.querySelector("#about");
+const aboutBorder = document.querySelector(".about-border__path");
+
+if (aboutSection && aboutBorder) {
+  let aboutEntered = false;
+
+  window.addEventListener("scroll", () => {
+    const rect = aboutSection.getBoundingClientRect();
+
+    // ABOUT ME 영역에 들어온 상태
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      aboutEntered = true;
+    }
+
+    // 아래 방향으로 ABOUT ME를 완전히 벗어남
+    if (aboutEntered && rect.bottom <= 0) {
+      aboutEntered = false;
+
+      aboutBorder.style.animation = "none";
+      aboutBorder.getBoundingClientRect();
+
+      aboutBorder.style.animation =
+        "aboutBorderHide 1.2s ease forwards";
+    }
+  });
+}

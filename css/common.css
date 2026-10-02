@@ -14,8 +14,8 @@
 
 :root {
     --font-color: #333;
-    --sub-font-color: #666;
-    --point-color: #645be7;
+    --sub-font-color: #8bc3b4;
+    --point-color: #20bf55;
     --color: pink;
     --blur-1-size: clamp(400px, 60vw, 60vw);
     --blur-2-size: clamp(300px, 40vw, 40vw);

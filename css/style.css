@@ -969,7 +969,7 @@ section.main__wrap .main__inner {
     }
 }
 
-.textMe {width:calc(((100% / 12) * 9) - (1em * 2));margin-left:calc(((100% / 12) * 1) + 1em)}
+.textMe {width:calc(((100% / 12) * 8.5) - (1em * 2));margin-left:calc(((100% / 12) * 1) + 1em)}
  .textMe h2 {font-size:6rem;letter-spacing:-2px;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif}
 .textMe h3 {font-size:4em;letter-spacing:-2px;color:#20bf55;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;margin:10px 0;}
 .textMe h3 + p {font-size:3em;letter-spacing:-1px;font-weight:normal;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif}

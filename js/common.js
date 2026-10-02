@@ -1,7 +1,8 @@
 (function () {
   AOS.init({
     duration: 800,
-    once: true,
+    once: false,
+    mirror: true,
   });
 
   document.querySelector(".return-top").style.display = "none";

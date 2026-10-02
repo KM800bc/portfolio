@@ -969,9 +969,9 @@ section.main__wrap .main__inner {
 }
 
 .textMe {width:calc(((100% / 12) * 9) - (1em * 2));margin-left:calc(((100% / 12) * 1) + 1em)}
- .textMe h2 {font-size:6rem;letter-spacing:-3px;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif}
-.textMe h3 {font-size:4em;color:#20bf55;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;margin:10px 0;}
-.textMe h3 + p {font-size:3em;font-weight:normal;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif}
+ .textMe h2 {font-size:6rem;letter-spacing:-2px;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif}
+.textMe h3 {font-size:4em;letter-spacing:-2px;color:#20bf55;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;margin:10px 0;}
+.textMe h3 + p {font-size:3em;letter-spacing:-2px;font-weight:normal;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif}
 .Wrapper_wrapper___M12Y {}
 .Button_button__etXCZ {background:#1663fe;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;color:#f4f4f8;padding:1.2em 1em 1em;}
 h1, h2, h3, h4, h5, h6 {font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;line-height:1.1}

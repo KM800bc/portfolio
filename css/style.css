@@ -860,7 +860,7 @@ section.main__wrap .main__inner {
 }
 
 
-/* SVG 전체 영역 */
+/* SVG 전체 영역 width: calc(100% - 16vw);*/
 
 .about-border {
     position: absolute;
@@ -868,13 +868,13 @@ section.main__wrap .main__inner {
     /*
      * ABOUT ME 영역 안쪽으로 들어오는 정도
      */
-    top: 0vw;
+    top: 0;
     right: 8vw;
     bottom: 8vw;
     left: 8vw;
 
-    width: calc(100% - 16vw);
-    height: calc(100% - 10vw);
+    width: auto;
+    height: auto;
 
     pointer-events: none;
 

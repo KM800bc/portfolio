@@ -893,12 +893,12 @@ section.main__wrap .main__inner {
     stroke: #20bf55;
 
     /*
-     * 테두리 두께
+     * 테두리 두께square
      */
     stroke-width: 10px;
     vector-effect: non-scaling-stroke;
 
-    stroke-linecap: square;
+    stroke-linecap: butt;
     stroke-linejoin: miter;
 
     /*

@@ -980,7 +980,7 @@ section.main__wrap .main__inner {
 .textMe h3 + p {font-size:3em;letter-spacing:-1px;font-weight:normal;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif}
 .Wrapper_wrapper___M12Y {}
 .Button_button__etXCZ {background:#1663fe;font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;color:#f4f4f8;padding:1.2em 1em 1em;}
-h1, h2, h3, h4, h5, h6 {font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;line-height:1.1}
+h1, h2, h3, h4, h5, h6 {font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;line-height:1.2}
 body {color:#f4f4f8;font-family:normal 18px/1.6 Bitter,Cambria,Georgia,serif}
 
 @media screen and (max-width: 1739px) {
@@ -997,6 +997,7 @@ body {color:#f4f4f8;font-family:normal 18px/1.6 Bitter,Cambria,Georgia,serif}
     .textMe h2 {font-size:2rem;line-height:1.3;letter-spacing:0px}
     .textMe .about-scroll-arrow {display:none}
     .textMe h3 + p {letter-spacing:-1px}
+    .about__inner, .projet__inner {padding: 5vw 8vw 20vw;}
 }
 @media screen and (max-width: 767px) {
     .about-scroll-arrow  {display:none}

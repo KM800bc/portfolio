@@ -923,16 +923,6 @@ section.main__wrap .main__inner {
         opacity 0.35s ease;
 }
 
-.about__inner {
-    position: relative;
-}
-
-.about-border {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-}
 
 
 

@@ -860,7 +860,7 @@ section.main__wrap .main__inner {
 }
 
 
-/* SVG 전체 영역 width: calc(100% - 16vw);*/
+/* SVG 전체 영역 */
 
 .about-border {
     position: absolute;
@@ -873,8 +873,8 @@ section.main__wrap .main__inner {
     bottom: 8vw;
     left: 8vw;
 
-    width: auto;
-    height: auto;
+    width: calc(100% - 16vw);
+    height: calc(100% - 16vw);
 
     pointer-events: none;
 
@@ -895,7 +895,7 @@ section.main__wrap .main__inner {
     /*
      * 테두리 두께
      */
-    stroke-width: 6px;
+    stroke-width: 8px;
     vector-effect: non-scaling-stroke;
 
     stroke-linecap: square;

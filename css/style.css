@@ -533,6 +533,7 @@ section.main__wrap p{
     font-weight:bolder;
     font-family:Codec,Arial,Helvetica Neue,Helvetica,sans-serif;
     text-transform:uppercase;
+    width:calc(((100% / 12) * 8) - (1em * 2));
 }
 ------------------------------------------------
 

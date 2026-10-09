@@ -1,3 +1,4 @@
+<img width="1654" height="5568" alt="km800bc_portfolio_preview" src="https://github.com/user-attachments/assets/3c735a66-0af7-4326-834e-c8ad1a987739" />
 # KMFIX'S PORTFOLIO
 
 ### 📍 요약

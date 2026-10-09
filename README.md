@@ -1,8 +1,8 @@
-# Portfolio
+# KMFIX'S PORTFOLIO
 
 ### 📍 요약
 - 기여도 : 디자인 100%, 퍼블리싱 100%
-- 제작 기간  : 2023.07 ~ 2023.08
+- 제작 기간  : 2026.06 ~ 2026.07
 - 사용 기술스택  : JavaScript, GSAP, AOS, FIGMA
 
 

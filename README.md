@@ -1,5 +1,3 @@
-<img width="1654" height="5568" alt="km800bc_portfolio_preview" src="" />
-
 # KMFIX'S PORTFOLIO
 
 ### 📍 요약
